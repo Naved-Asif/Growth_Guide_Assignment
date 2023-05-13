@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uploaded Files</title>
+	<style>
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+		th {
+			background-color: #07dcd1;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div style="text-align: right;">
+		{% if is_authenticated %}
+		  <form action="/logout" method="get">
+			<button type="submit">Logout</button>
+		  </form>
+		{% endif %}
+	  </div>
+	<h3>Uploaded Files</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>File Name</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for file in files %}
+			<tr>
+				<td>{{ file }}</td>
+				<td>
+					<a href="{{ url_for('open_file', filename=file) }}" target="_blank">Open</a> | 
+					<a href="{{ url_for('download_file', filename=file) }}">Download</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>

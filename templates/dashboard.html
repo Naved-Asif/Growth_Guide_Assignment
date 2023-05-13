@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DASHBOARD</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      h1 {
+        margin: 50px 0 20px;
+        text-align: center;
+        font-size: 32px;
+        color: #333;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+      li {
+        margin: 0 10px;
+      }
+      a {
+        display: block;
+        padding: 10px 20px;
+        background-color: #3366cc;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+      a:hover {
+        background-color: #3366bb;
+      }
+      input[type="submit"] {
+        background-color: #3366cc;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      input[type="submit"]:hover {
+        background-color: #3366bb;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>DASHBOARD</h2>
+      <div>
+        {% if is_authenticated() %}
+          <form action="/logout" method="get">
+            <input type="submit" value="Logout">
+          </form>
+        {% endif %}
+      </div>
+    </header>
+    <h1>Please Select an Option Below</h1>
+    <ul>
+      <li><a href="/upload">Upload Files</a></li>
+      <li><a href="/files">View Files</a></li>
+    </ul>
+  </body>
+</html>

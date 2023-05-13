@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div style="text-align: right;">
+        {% if is_authenticated %}
+          <form action="/logout" method="get">
+            <button type="submit">Logout</button>
+          </form>
+        {% endif %}
+      </div>
+    <h1>{{ title }}</h1>
+    {{ table | safe }}
+</body>
+</html>
